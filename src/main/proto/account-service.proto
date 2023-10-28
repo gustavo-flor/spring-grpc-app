@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.github.gustavoflor.sga.protobuf";
+
+message Void {
+}
+
+message AccountPayload {
+  string id = 1;
+  string cpf = 2;
+  double balance = 3;
+}
+
+message CreateAccountRequest {
+  string cpf = 1;
+}
+
+message FindByCpfRequest {
+  string cpf = 1;
+}
+
+message DeleteByCpfRequest {
+  string cpf = 1;
+}
+
+service AccountService {
+
+  rpc create(CreateAccountRequest) returns (AccountPayload);
+
+  rpc findByCpf(FindByCpfRequest) returns (AccountPayload);
+
+  rpc deleteByCpf(DeleteByCpfRequest) returns (Void);
+
+}

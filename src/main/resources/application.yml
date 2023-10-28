@@ -1,0 +1,10 @@
+grpc:
+  server:
+    port: 9090
+spring:
+  application:
+    name: spring-grpc-app
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/${spring.application.name}
+      auto-index-creation: true
